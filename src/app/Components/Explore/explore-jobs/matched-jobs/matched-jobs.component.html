@@ -1,0 +1,46 @@
+<!-- Job Listing Details -->
+<a
+  href="javascript:;"
+  class="job-listing-details"
+  (click)="redirectToProfile(matched_job.job_id)"
+>
+  <!-- Logo -->
+  <div class="job-listing-company-logo">
+    <img [src]="matched_job.company_logo" alt="" />
+  </div>
+
+  <!-- Details -->
+  <div class="job-listing-description">
+    <h3 class="job-listing-title">{{ matched_job.job_name }}</h3>
+
+    <!-- Job Listing Footer -->
+    <div class="job-listing-footer">
+      <ul>
+        <li>
+          <i class="icon-material-outline-business"></i>
+          {{ matched_job.company_name }}
+          <div
+          [class.verified-badge]="matched_job.company_verified"
+            title="Verified Employer"
+            data-tippy-placement="top"
+          ></div>
+        </li>
+        <li>
+          <i class="icon-material-outline-location-on"></i>
+          {{ matched_job.job_location }}
+        </li>
+        <li>
+          <i class="icon-material-outline-business-center"></i>
+          {{ matched_job.job_type }}
+        </li>
+        <li>
+          <i class="icon-material-outline-access-time"></i>
+          {{ matched_job.job_date }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bookmark -->
+  <span class="bookmark-icon" [ngClass]="{'bookmarked': matched_job.is_bookmarked}"></span>
+</a>
